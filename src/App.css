@@ -1,0 +1,447 @@
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.app-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 16px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #dbeafe,
+            transparent 35%
+        ),
+        #f1f5f9;
+}
+
+
+/* =========================
+   STOPWATCH CARD
+========================= */
+
+.stopwatch-card {
+    width: 100%;
+    max-width: 620px;
+
+    padding: 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 45px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #dbeafe;
+    border-radius: 13px;
+
+    font-size: 25px;
+}
+
+.brand h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.brand p {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 12px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status.idle {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.status.running {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.paused {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.status.running .status-dot {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+
+/* =========================
+   TIMER SECTION
+========================= */
+
+.timer-section {
+    text-align: center;
+
+    padding: 35px 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+}
+
+.timer-label {
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #64748b;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   TIMER DISPLAY
+========================= */
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: #0f172a;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.separator {
+    color: #94a3b8;
+    margin: 0 2px;
+}
+
+.milliseconds {
+    font-size: 0.55em;
+    color: #2563eb;
+    letter-spacing: -1px;
+}
+
+
+/* =========================
+   TIME UNITS
+========================= */
+
+.time-units {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    margin-top: 14px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   CONTROL BUTTONS
+========================= */
+
+.controls {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.controls button {
+    min-height: 52px;
+
+    border: none;
+    border-radius: 11px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    transform: translateY(0);
+}
+
+.main-button {
+    flex: 1;
+
+    background: #2563eb;
+    color: white;
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.main-button:hover {
+    background: #1d4ed8;
+}
+
+.pause-button {
+    background: #d97706;
+}
+
+.pause-button:hover {
+    background: #b45309;
+}
+
+.reset-button {
+    width: 130px;
+
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.reset-button:hover {
+    background: #cbd5e1;
+}
+
+
+/* =========================
+   KEYBOARD SHORTCUTS
+========================= */
+
+.shortcuts {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.shortcuts-heading {
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #94a3b8;
+
+    margin-bottom: 17px;
+}
+
+.shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 13px;
+
+    font-size: 13px;
+    color: #475569;
+}
+
+kbd {
+    min-width: 65px;
+
+    padding: 6px 10px;
+
+    text-align: center;
+
+    background: #f1f5f9;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 30px;
+
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+
+    .stopwatch-card {
+        padding: 24px 18px;
+        border-radius: 17px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .brand h1 {
+        font-size: 19px;
+    }
+
+    .status-badge {
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+
+    .timer-section {
+        padding: 30px 8px;
+    }
+
+    .timer-display {
+        font-size: clamp(32px, 9vw, 48px);
+        letter-spacing: -2px;
+    }
+
+    .time-units {
+        gap: 17px;
+        font-size: 8px;
+    }
+
+    .controls button {
+        min-height: 48px;
+        font-size: 13px;
+    }
+
+    .reset-button {
+        width: 105px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .timer-display {
+        font-size: 34px;
+    }
+
+    .time-units {
+        gap: 12px;
+        font-size: 7px;
+    }
+
+}
